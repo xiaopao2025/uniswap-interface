@@ -49,6 +49,7 @@
     "@react-native/assets-registry@0.76.6": "Fixes an issue with building on Web due to webpack's inability to handle Flow typings: https://github.com/facebook/react-native/issues/48349"
   },
   "resolutions": {
+    "@apidevtools/json-schema-ref-parser": "11.9.0",
     "@apollo/client": "3.10.4",
     "@babel/preset-env": "7.26.0",
     "@ethersproject/hash": "5.7.0",
