@@ -2,8 +2,7 @@ FROM node:18 as builder
 WORKDIR /app
 COPY . .
 RUN yarn install
-WORKDIR /app/apps/web
-RUN yarn run build
+RUN yarn web build:production
 FROM alpine as runner
 RUN apk add --no-cache nginx
 COPY --from=builder /app/apps/web/build /var/nginx
