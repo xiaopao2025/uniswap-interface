@@ -87,6 +87,7 @@
     "multicodec": "3.0.1",
     "multiformats@^9.4.2": "patch:multiformats@npm%3A9.4.2#./.yarn/patches/multiformats-npm-9.4.2-44b8a13c1d.patch",
     "multihashes": "4.0.2",
+    "node-gyp-build": "4.8.1",
     "qs": "6.11.0",
     "react-dom": "18.3.1",
     "react-native-context-menu-view@1.15.0": "patch:react-native-context-menu-view@npm%3A1.15.0#./.yarn/patches/react-native-context-menu-view-npm-1.15.0-c8a9d10d8c.patch",
