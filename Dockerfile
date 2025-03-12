@@ -1,23 +1,13 @@
-FROM node:18-slim
-
-RUN apt-get update && apt-get install -y \
-  python3 \
-  make \
-  g++ \
-  gcc \
-  libc-dev \
-  && rm -rf /var/lib/apt/lists/*
-
+FROM node:18 as builder
 WORKDIR /app
-
-RUN corepack enable && yarn set version 3.2.3
-
 COPY . .
-
 RUN yarn install
-
-EXPOSE 3000
-
-
-CMD ["yarn", "web", "start"]
+WORKDIR /app/apps/web
+RUN yarn run build
+FROM alpine as runner
+RUN apk add --no-cache nginx
+COPY --from=builder /app/apps/web/build /var/nginx
+#COPY default.conf /etc/nginx
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
